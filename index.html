@@ -662,30 +662,8 @@ window.addEventListener("scroll", checkSections);
 window.addEventListener("load", checkSections);
 </script>
 
-<script src="https://www.paypal.com/sdk/js?client-id=TON_CLIENT_ID&currency=EUR"></script>
 
-<div id="paypal-button-container"></div>
 
-<script>
-paypal.Buttons({
-    createOrder: function (data, actions) {
-        return actions.order.create({
-            purchase_units: [{
-                amount: {
-                    value: '10.00' // prix du pack
-                }
-            }]
-        });
-    },
-
-    onApprove: function (data, actions) {
-        return actions.order.capture().then(function (details) {
-            // Paiement OK → envoyer réservation
-            sendReservation();
-        });
-    }
-}).render('#paypal-button-container');
-</script>
 
 
 
